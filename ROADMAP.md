@@ -21,10 +21,5 @@ These are some of the items that will be on the card:
 
 
 
-### create a rarity table
-
-loop through each nft data from the _metadata.json file
-and its attributes:
-
 
 
