@@ -26,13 +26,12 @@ const layerConfigurations = [
   {
     growEditionSizeTo: 5,
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "bg2" },
+      { name: "bg1" },
+      { name: "botskin" },
+      { name: "inter_face" },
+      { name: "ears" },
+      { name: "headwear" }
     ],
   },
 ];
@@ -42,8 +41,8 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 2100,
+  height: 2100,
   smoothing: false,
 };
 
