@@ -2,11 +2,11 @@ const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 const { NETWORK } = require(`${basePath}/constants/network.js`);
 
-const network = NETWORK.eth;
+const network = NETWORK.ada;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "ADA BOTS";
+const description = "ADA BOTS are cute little robots that helped out clean up the space debri around the moon";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {

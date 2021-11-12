@@ -164,6 +164,33 @@ const addMetadata = (_dna, _edition) => {
       },
     };
   }
+  // ADA
+  if (network == NETWORK.ada) {
+    tempMetadata = {
+      //Added metadata for solana
+      name: tempMetadata.name,
+      symbol: solanaMetadata.symbol,
+      description: tempMetadata.description,
+      //Added metadata for solana
+      seller_fee_basis_points: solanaMetadata.seller_fee_basis_points,
+      image: `image.png`,
+      //Added metadata for solana
+      external_url: solanaMetadata.external_url,
+      edition: _edition,
+      ...extraMetadata,
+      attributes: tempMetadata.attributes,
+      properties: {
+        files: [
+          {
+            uri: "image.png",
+            type: "image/png",
+          },
+        ],
+        category: "image",
+        creators: solanaMetadata.creators,
+      },
+    };
+  }
   metadataList.push(tempMetadata);
   attributesList = [];
 };
@@ -196,18 +223,18 @@ const drawElement = (_renderObject, _index, _layersLen) => {
   ctx.globalCompositeOperation = _renderObject.layer.blend;
   text.only
     ? addText(
-        `${_renderObject.layer.name}${text.spacer}${_renderObject.layer.selectedElement.name}`,
-        text.xGap,
-        text.yGap * (_index + 1),
-        text.size
-      )
+      `${_renderObject.layer.name}${text.spacer}${_renderObject.layer.selectedElement.name}`,
+      text.xGap,
+      text.yGap * (_index + 1),
+      text.size
+    )
     : ctx.drawImage(
-        _renderObject.loadedImage,
-        0,
-        0,
-        format.width,
-        format.height
-      );
+      _renderObject.loadedImage,
+      0,
+      0,
+      format.width,
+      format.height
+    );
 
   addAttributes(_renderObject);
 };
@@ -286,8 +313,7 @@ const createDna = (_layers) => {
       random -= layer.elements[i].weight;
       if (random < 0) {
         return randNum.push(
-          `${layer.elements[i].id}:${layer.elements[i].filename}${
-            layer.bypassDNA ? "?bypassDNA=true" : ""
+          `${layer.elements[i].id}:${layer.elements[i].filename}${layer.bypassDNA ? "?bypassDNA=true" : ""
           }`
         );
       }
@@ -304,8 +330,8 @@ const saveMetaDataSingleFile = (_editionCount) => {
   let metadata = metadataList.find((meta) => meta.edition == _editionCount);
   debugLogs
     ? console.log(
-        `Writing metadata for ${_editionCount}: ${JSON.stringify(metadata)}`
-      )
+      `Writing metadata for ${_editionCount}: ${JSON.stringify(metadata)}`
+    )
     : null;
   fs.writeFileSync(
     `${buildDir}/json/${_editionCount}.json`,
