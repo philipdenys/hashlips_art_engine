@@ -8,6 +8,7 @@ const {
   namePrefix,
   network,
   solanaMetadata,
+  adaMetadata
 } = require(`${basePath}/src/config.js`);
 
 // read json data
@@ -15,17 +16,17 @@ let rawdata = fs.readFileSync(`${basePath}/build/json/_metadata.json`);
 let data = JSON.parse(rawdata);
 
 data.forEach((item) => {
-  if (network == NETWORK.sol) {
-    item.name = `${namePrefix} #${item.edition}`;
-    item.description = description;
-    item.creators = solanaMetadata.creators;
+  if (network == NETWORK.ada) {
+    item[721]["policyID"]["adaminions"].name = `${namePrefix} #${item[721]["policyID"]["adaminions"]["edition"]}`;
+    item[721]["policyID"]["adaminions"].description = description;
+    item[721]["policyID"]["adaminions"].image = `${baseUri}/${item[721]["policyID"]["adaminions"]["edition"]}.png`;
   } else {
     item.name = `${namePrefix} #${item.edition}`;
     item.description = description;
     item.image = `${baseUri}/${item.edition}.png`;
   }
   fs.writeFileSync(
-    `${basePath}/build/json/${item.edition}.json`,
+    `${basePath}/build/json/${item[721]["policyID"]["adaminions"]["edition"]}.json`,
     JSON.stringify(item, null, 2)
   );
 });

@@ -7,7 +7,7 @@ const network = NETWORK.ada;
 // General metadata for Ethereum
 const namePrefix = "ADA MINIONS";
 const description = "ADA MINIONS are cute little robots that helped out clean up the space debris around the moon";
-const baseUri = "ipfs://NewUriToReplace";
+const baseUri = "ipfs://QmZpLsX6FZYkfZhuGwzrqKmm5XrbuckexisKfTA3Sy98gB";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -28,7 +28,7 @@ const adaMetadata = {
         "name": "ADA MINIONS",
         "image": "ipfs://Qmc7DA1KS3TBCew9ELgctCFYe7o9HXWLqLb3yXuvJm5sG3",
         "nsfw": "False",
-        "copyright": "Copyright @2021",
+        "copyright": "Copyright ADAMINIONS@2021",
         "version": "1.0",
         "id": "1",
         "collection": "ADA MINIONS",
