@@ -43,10 +43,11 @@ const adaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 2500,
     layersOrder: [
       { name: "bg2" },
       { name: "bg1" },
+      { name: "shadow" },
       { name: "botskin" },
       { name: "inter_face" },
       { name: "ears" },
