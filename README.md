@@ -262,7 +262,7 @@ If you want to change the ratio of the pixelation then you can update the ratio 
 
 ```js
 const pixelFormat = {
-  ratio: 5 / 128,
+  ratio: 128 / 5,
 };
 ```
 

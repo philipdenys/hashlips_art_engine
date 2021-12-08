@@ -20,6 +20,7 @@ const {
   namePrefix,
   network,
   solanaMetadata,
+  adaMetadata,
   gif,
 } = require(`${basePath}/src/config.js`);
 const canvas = createCanvas(format.width, format.height);
@@ -138,58 +139,35 @@ const addMetadata = (_dna, _edition) => {
     attributes: attributesList,
     compiler: "HashLips Art Engine",
   };
-  if (network == NETWORK.sol) {
-    tempMetadata = {
-      //Added metadata for solana
-      name: tempMetadata.name,
-      symbol: solanaMetadata.symbol,
-      description: tempMetadata.description,
-      //Added metadata for solana
-      seller_fee_basis_points: solanaMetadata.seller_fee_basis_points,
-      image: `image.png`,
-      //Added metadata for solana
-      external_url: solanaMetadata.external_url,
-      edition: _edition,
-      ...extraMetadata,
-      attributes: tempMetadata.attributes,
-      properties: {
-        files: [
-          {
-            uri: "image.png",
-            type: "image/png",
-          },
-        ],
-        category: "image",
-        creators: solanaMetadata.creators,
-      },
-    };
-  }
+
+
   // ADA
   if (network == NETWORK.ada) {
+
     tempMetadata = {
-      //Added metadata for solana
-      name: tempMetadata.name,
-      symbol: solanaMetadata.symbol,
-      description: tempMetadata.description,
-      //Added metadata for solana
-      seller_fee_basis_points: solanaMetadata.seller_fee_basis_points,
-      image: `image.png`,
-      //Added metadata for solana
-      external_url: solanaMetadata.external_url,
-      edition: _edition,
-      ...extraMetadata,
-      attributes: tempMetadata.attributes,
-      properties: {
-        files: [
-          {
-            uri: "image.png",
-            type: "image/png",
-          },
-        ],
-        category: "image",
-        creators: solanaMetadata.creators,
-      },
+      //Added metadata for ada
+      721: {
+        policyID: {
+          adaminions: {
+            name: tempMetadata.name,
+            image: tempMetadata.image,
+            description: tempMetadata.description,
+            dna: tempMetadata.dna,
+            nsfw: adaMetadata[721]["##policyID##"]["adaminions"].nsfw,
+            copyright: adaMetadata[721]["##policyID##"]["adaminions"].copyright,
+            version: adaMetadata[721]["##policyID##"]["adaminions"].version,
+            edition: _edition,
+            url: adaMetadata[721]["##policyID##"]["adaminions"].url,
+            twitter: adaMetadata[721]["##policyID##"]["adaminions"].twitter,
+            instagram: adaMetadata[721]["##policyID##"]["adaminions"].instagram,
+
+            ...extraMetadata,
+            attributes: tempMetadata.attributes
+          }
+        }
+      }
     };
+
   }
   metadataList.push(tempMetadata);
   attributesList = [];
@@ -327,7 +305,7 @@ const writeMetaData = (_data) => {
 };
 
 const saveMetaDataSingleFile = (_editionCount) => {
-  let metadata = metadataList.find((meta) => meta.edition == _editionCount);
+  let metadata = metadataList.find((meta) => meta[721]["policyID"]["adaminions"].edition == _editionCount);
   debugLogs
     ? console.log(
       `Writing metadata for ${_editionCount}: ${JSON.stringify(metadata)}`

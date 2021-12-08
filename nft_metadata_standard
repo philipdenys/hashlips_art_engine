@@ -1,12 +1,32 @@
-"721": {
-    "<policy_id>": {
-        "<asset_name>": {
-            "name": "<asset_name>",
-            "image": "<ipfs_link>",
-            "mediaType": "<mime_type>",
-            "description": ""
+// {
+//     "721": {
+//         "<policy_id>": {
+//             "<asset_name>": {
+//                 "name": "<asset_name>",
+//                 "image": "<ipfs_link>",
+//                 "mediaType": "<mime_type>",
+//                 "description": ""
+//             }
+//         },
+//         "version": "1.0"
+//     }
+// }
+// mermada
+{
+    "721": {
+        "##policyID##": {
+            "##ticker##": {
+                "name": "##tokenName##",
+                "image": "ipfs://Qmc7DA1KS3TBCew9ELgctCFYe7o9HXWLqLb3yXuvJm5sG3",
+                "nsfw": "False",
+                "copyright": "Copyright @2021",
+                "Version": "1",
+                "id": "1",
+                "collection": "3d ada minion - alpha pioneer",
+                "url": "https://adaminions.cnft.be/",
+                "Twitter": "https://twitter.com/ada_minions",
+                "Instagram": ""
+            }
         }
-    },
-    "version": "1.0"
-}
+    }
 }

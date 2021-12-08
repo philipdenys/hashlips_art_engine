@@ -5,8 +5,8 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.ada;
 
 // General metadata for Ethereum
-const namePrefix = "ADA BOTS";
-const description = "ADA BOTS are cute little robots that helped out clean up the space debri around the moon";
+const namePrefix = "ADA MINIONS";
+const description = "ADA MINIONS are cute little robots that helped out clean up the space debris around the moon";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
@@ -19,6 +19,25 @@ const solanaMetadata = {
       share: 100,
     },
   ],
+};
+
+const adaMetadata = {
+  "721": {
+    "##policyID##": {
+      "adaminions": {
+        "name": "ADA MINIONS",
+        "image": "ipfs://Qmc7DA1KS3TBCew9ELgctCFYe7o9HXWLqLb3yXuvJm5sG3",
+        "nsfw": "False",
+        "copyright": "Copyright @2021",
+        "version": "1.0",
+        "id": "1",
+        "collection": "ADA MINIONS",
+        "url": "https://www.adaminions.com/",
+        "twitter": "https://twitter.com/ada_minions/",
+        "instagram": "https://www.instagram.com/ada_minions/"
+      }
+    }
+  }
 };
 
 // If you have selected Solana then the collection starts from 0 automatically
@@ -41,8 +60,8 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 2100,
-  height: 2100,
+  width: 2400,
+  height: 2400,
   smoothing: false,
 };
 
@@ -67,7 +86,7 @@ const text = {
 };
 
 const pixelFormat = {
-  ratio: 2 / 128,
+  ratio: 4 / 128,
 };
 
 const background = {
@@ -115,7 +134,7 @@ module.exports = {
   text,
   namePrefix,
   network,
-  solanaMetadata,
+  adaMetadata,
   gif,
   preview_gif,
 };
